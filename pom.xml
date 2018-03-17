@@ -22,6 +22,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+
+        <docker.image.prefix>lxchild</docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -66,11 +68,13 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <imageName>${project.name}:${project.version}</imageName>
-                    <dockerDirectory>${project.basedir}</dockerDirectory>
+                    <!--<imageName>${docker.image.prefix}/${project.name}:${project.version}</imageName>-->
+                    <imageName>${docker.image.prefix}/${project.name}</imageName>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                     <skipDockerBuild>false</skipDockerBuild>
                     <resources>
                         <resource>
+                            <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
                             <include>${project.build.finalName}.jar</include>
                         </resource>
