@@ -20,7 +20,7 @@ docker images | grep ${MYIMAGE} | awk '{print $3}' | xargs docker rmi -f
 mvn clean package -e -X docker:build -DskipTest
 
 # running container
-docker run -it -dp 8080:8080 --name ${MY_CONTAINER} ${MYIMAGE}
+docker run -it -dp 18080:18080 --name ${MY_CONTAINER} ${MYIMAGE}
 
 # push image
 # docker push ${MYIMAGE}
