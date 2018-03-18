@@ -8,6 +8,7 @@ MY_CONTAINER=lxchild
 echo "stop all container"
 if docker ps -a | grep -i ${MY_CONTAINER}
 then
+    echo "find" ${MY_CONTAINER}
     docker kill ${MY_CONTAINER}
 fi
 echo "remove all container"
