@@ -19,7 +19,7 @@ echo "remove old images"
 docker rmi ${MYIMAGE}
 
 echo "build jar and image"
-mvn clean package -e -X docker:build -DskipTest
+docker build . -t ${MYIMAGE}
 
 echo "running container"
 docker run -it -dp 18080:18080 --name ${MY_CONTAINER} ${MYIMAGE}
