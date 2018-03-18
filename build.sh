@@ -15,7 +15,7 @@ docker rm $(docker ps -aq)
 docker images | grep ${MYIMAGE} | awk '{print $3}' | xargs docker rmi
 
 # build jar and image
-mvn package -e -X docker:build -DskipTest
+mvn clean package -e -X docker:build -DskipTest
 
 # running container
 docker run -dp 8080:8080 --name ${MYIMAGE} ${MYIMAGE}
