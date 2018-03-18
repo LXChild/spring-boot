@@ -6,7 +6,7 @@ MY_CONTAINER=lxchild
 #docker login 192.168.1.2:8082 -u admin -p admin123
 
 # stop all container
-if [docker ps -a | grep -i ${MY_CONTAINER}]
+if docker ps -a | grep -i ${MY_CONTAINER}
 then
     docker kill ${MY_CONTAINER}
 fi
